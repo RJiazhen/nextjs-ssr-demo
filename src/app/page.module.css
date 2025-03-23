@@ -68,10 +68,7 @@
   padding: 0 20px;
   border: none;
   border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -165,4 +162,96 @@ a.secondary {
   .logo {
     filter: invert();
   }
+}
+
+.navigation {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.navigation h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation li {
+  margin: 0.5rem 0;
+}
+
+.link {
+  color: #0070f3;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #0051b3;
+  text-decoration: underline;
+}
+
+.demoSection {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.posts {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.post {
+  padding: 1.5rem;
+  border: 1px solid var(--gray-alpha-200);
+  border-radius: 8px;
+  background: var(--gray-alpha-100);
+}
+
+.post h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.post p {
+  margin: 0;
+  color: var(--gray-alpha-200);
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--gray-alpha-200);
+  border-top-color: var(--foreground);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.postMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--gray-alpha-200);
 }
