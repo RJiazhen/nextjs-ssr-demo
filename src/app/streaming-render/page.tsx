@@ -1,5 +1,7 @@
 import { Suspense } from 'react';
 import styles from '../page.module.css';
+import UserCard from '../components/UserCard';
+import DiscountCard from '../components/DiscountCard';
 
 interface Post {
   id: number;
@@ -65,6 +67,28 @@ export default function StreamingRender() {
           This page demonstrates streaming server-side rendering with React
           Suspense
         </p>
+
+        <div className={styles.demoSection}>
+          <h2>User Profile</h2>
+          <Suspense
+            fallback={
+              <div className={styles.loading}>Loading user info...</div>
+            }
+          >
+            <UserCard onUserInfo={() => {}} />
+          </Suspense>
+        </div>
+
+        <div className={styles.demoSection}>
+          <h2>Premium Offer</h2>
+          <Suspense
+            fallback={
+              <div className={styles.loading}>Loading discount info...</div>
+            }
+          >
+            <DiscountCard />
+          </Suspense>
+        </div>
 
         <div className={styles.demoSection}>
           <h2>Posts</h2>
