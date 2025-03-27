@@ -11,7 +11,7 @@ interface Post {
 
 // API call to fetch posts
 async function getPosts(): Promise<Post[]> {
-  const response = await fetch('http://localhost:3001/api/posts', {
+  const response = await fetch('http://localhost:3000/api/posts', {
     // Ensure we get fresh data on each request
     cache: 'no-store',
   });
@@ -56,12 +56,15 @@ async function Posts() {
   );
 }
 
-export default function SSRDemo() {
+export default function StreamingRender() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1>SSR Demo with Suspense</h1>
-        <p>This page demonstrates server-side rendering with React Suspense</p>
+        <h1>Streaming Render Demo</h1>
+        <p>
+          This page demonstrates streaming server-side rendering with React
+          Suspense
+        </p>
 
         <div className={styles.demoSection}>
           <h2>Posts</h2>
