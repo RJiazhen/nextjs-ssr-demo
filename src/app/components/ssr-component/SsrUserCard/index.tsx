@@ -1,9 +1,9 @@
-import { PremiumFeaturesResponse } from '@/app/api/premium-features/route';
 import styles from './index.module.scss';
 import { UserInfo } from '@/app/api/user/route';
 import PremiumFeatures from '@/app/components/PremiumFeatures';
 import { Suspense } from 'react';
 import DiscountCard from '@/app/components/DiscountCard';
+import { DailyCheckout } from '@/app/components/DailyCheckout';
 
 const getUserInfo = async (): Promise<UserInfo> => {
   const response = await fetch('http://localhost:3000/api/user', {
@@ -60,6 +60,9 @@ export const SsrUserCard = async () => {
           <DiscountCard />
         </Suspense>
       )}
+      <Suspense fallback={<div>Loading...</div>}>
+        <DailyCheckout />
+      </Suspense>
     </div>
   );
 };
