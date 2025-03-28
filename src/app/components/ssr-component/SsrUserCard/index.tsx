@@ -1,23 +1,11 @@
+import { PremiumFeaturesResponse } from '@/app/api/premium-features/route';
 import styles from './index.module.scss';
+import { UserInfo } from '@/app/api/user/route';
+import PremiumFeatures from '@/app/components/PremiumFeatures';
+import { Suspense } from 'react';
+import DiscountCard from '@/app/components/DiscountCard';
 
-interface UserStats {
-  posts: number;
-  followers: number;
-  following: number;
-}
-
-interface UserInfo {
-  id: number;
-  name: string;
-  email: string;
-  avatar: string;
-  isPremium: boolean;
-  joinDate: string;
-  subscriptionEnd: string;
-  stats: UserStats;
-}
-
-async function getUserInfo(): Promise<UserInfo> {
+const getUserInfo = async (): Promise<UserInfo> => {
   const response = await fetch('http://localhost:3000/api/user', {
     cache: 'no-store',
   });
@@ -27,9 +15,9 @@ async function getUserInfo(): Promise<UserInfo> {
   }
 
   return response.json();
-}
+};
 
-export default async function UserCard() {
+export const SsrUserCard = async () => {
   const user = await getUserInfo();
 
   return (
@@ -63,14 +51,15 @@ export default async function UserCard() {
         </div>
       </div>
 
-      {user.isPremium && (
-        <div className={styles.premiumInfo}>
-          <p>Premium Member</p>
-          <p className={styles.subscriptionEnd}>
-            Expires: {new Date(user.subscriptionEnd).toLocaleDateString()}
-          </p>
-        </div>
+      {user.isPremium ? (
+        <Suspense fallback={<div>Loading...</div>}>
+          <PremiumFeatures />
+        </Suspense>
+      ) : (
+        <Suspense fallback={<div>Loading...</div>}>
+          <DiscountCard />
+        </Suspense>
       )}
     </div>
   );
-}
+};

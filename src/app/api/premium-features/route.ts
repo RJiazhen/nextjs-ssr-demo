@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-interface PremiumFeature {
+export interface PremiumFeature {
   id: string;
   title: string;
   description: string;
@@ -8,7 +8,7 @@ interface PremiumFeature {
   category: 'core' | 'exclusive' | 'support';
 }
 
-interface PremiumFeaturesResponse {
+export interface PremiumFeaturesResponse {
   features: PremiumFeature[];
   subscription: {
     status: 'active' | 'expired' | 'trial';

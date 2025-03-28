@@ -1,14 +1,13 @@
 import { Suspense } from 'react';
 import styles from '../page.module.css';
-import UserCard from '../components/UserCard';
-import DiscountCard from '../components/DiscountCard';
+import { SsrUserCard } from '@/app/components/ssr-component/SsrUserCard';
 
 export default function StreamingRender() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <h1>Streaming Render Demo</h1>
-        <p>
+        <p> 
           This page demonstrates streaming server-side rendering with React
           Suspense
         </p>
@@ -20,18 +19,7 @@ export default function StreamingRender() {
               <div className={styles.loading}>Loading user info...</div>
             }
           >
-            <UserCard onUserInfo={() => {}} />
-          </Suspense>
-        </div>
-
-        <div className={styles.demoSection}>
-          <h2>Premium Offer</h2>
-          <Suspense
-            fallback={
-              <div className={styles.loading}>Loading discount info...</div>
-            }
-          >
-            <DiscountCard />
+            <SsrUserCard />
           </Suspense>
         </div>
       </main>

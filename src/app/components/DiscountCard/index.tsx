@@ -20,15 +20,6 @@ async function getDiscountInfo(): Promise<DiscountInfo> {
   return response.json();
 }
 
-function LoadingDiscountCard() {
-  return (
-    <div className={styles.discountCard}>
-      <div className={styles.loadingSpinner}></div>
-      <p>Loading discount info...</p>
-    </div>
-  );
-}
-
 export default async function DiscountCard() {
   const discountInfo = await getDiscountInfo();
 

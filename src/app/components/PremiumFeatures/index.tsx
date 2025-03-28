@@ -37,18 +37,8 @@ async function getPremiumFeatures(): Promise<PremiumFeaturesResponse> {
   return response.json();
 }
 
-function LoadingPremiumFeatures() {
-  return (
-    <div className={styles.premiumFeatures}>
-      <div className={styles.loadingSpinner}></div>
-      <p>Loading premium features...</p>
-    </div>
-  );
-}
-
 export default async function PremiumFeatures() {
   const data = await getPremiumFeatures();
-
   return (
     <div className={styles.premiumFeatures}>
       <div className={styles.subscriptionStatus}>
