@@ -15,40 +15,46 @@ $spacing-unit: 1rem;
 }
 
 .userCard {
-  background: var(--gray-alpha-100);
-  border-radius: $border-radius;
-  padding: $spacing-unit * 1.5;
-  margin: $spacing-unit 0;
-  @include card-shadow;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
 }
 
 .userHeader {
-  @include flex-center;
-  gap: $spacing-unit;
-  margin-bottom: $spacing-unit * 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
 }
 
 .avatarContainer {
   position: relative;
 
   .avatar {
-    border-radius: 50%;
-    border: 2px solid var(--gray-alpha-200);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-border);
   }
 
   .premiumBadge {
     position: absolute;
     bottom: 0;
     right: 0;
-    background: #ffd700;
-    border-radius: 50%;
+    background: var(--color-warning);
+    border-radius: var(--radius-full);
     width: 24px;
     height: 24px;
-    @include flex-center;
-    border: 2px solid var(--gray-alpha-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-bg-card);
 
     span {
       font-size: 14px;
+      color: var(--color-text-primary);
     }
   }
 }
@@ -57,11 +63,12 @@ $spacing-unit: 1rem;
   h3 {
     margin: 0;
     font-size: 1.25rem;
+    color: var(--color-text-primary);
   }
 
   .email {
-    color: var(--gray-alpha-200);
-    margin: 0.25rem 0 0 0;
+    color: var(--color-text-secondary);
+    margin: var(--spacing-xs) 0 0 0;
     font-size: 0.875rem;
   }
 }
@@ -69,36 +76,41 @@ $spacing-unit: 1rem;
 .userStats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-unit;
-  margin-bottom: $spacing-unit * 1.5;
-  padding: $spacing-unit 0;
-  border-top: 1px solid var(--gray-alpha-200);
-  border-bottom: 1px solid var(--gray-alpha-200);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .statItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: var(--spacing-xs);
 
   .statValue {
     font-size: 1.25rem;
     font-weight: 600;
+    color: var(--color-text-primary);
   }
 
   .statLabel {
     font-size: 0.875rem;
-    color: var(--gray-alpha-200);
+    color: var(--color-text-secondary);
   }
 }
 
 .premiumInfo {
-  background: $premium-gradient;
-  padding: $spacing-unit;
-  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    var(--color-warning) 0%,
+    var(--color-primary) 100%
+  );
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
   text-align: center;
-  color: #000;
+  color: var(--color-text-primary);
 
   p {
     margin: 0;
@@ -114,7 +126,7 @@ $spacing-unit: 1rem;
 @media (max-width: 600px) {
   .userStats {
     grid-template-columns: 1fr;
-    gap: $spacing-unit * 0.5;
+    gap: var(--spacing-sm);
   }
 
   .userHeader {
