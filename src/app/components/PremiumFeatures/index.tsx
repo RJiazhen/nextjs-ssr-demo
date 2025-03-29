@@ -110,7 +110,6 @@ export const PremiumFeatures = async () => {
             >
               <span className={styles.featureIcon}>{feature.icon}</span>
               <h4>{feature.title}</h4>
-              <span className={styles.featureCategory}>{feature.category}</span>
             </div>
           ))}
         </div>
