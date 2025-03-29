@@ -1,7 +1,7 @@
-import { UserInfo } from '@/app/api/user/route';
+import { UserInfo } from '@/app/api/user/[id]/route';
 
-export const getUserInfo = async (): Promise<UserInfo> => {
-  const response = await fetch('http://localhost:3000/api/user', {
+export const getUserInfo = async (userId: string): Promise<UserInfo> => {
+  const response = await fetch(`http://localhost:3000/api/user/${userId}`, {
     cache: 'no-store',
   });
 

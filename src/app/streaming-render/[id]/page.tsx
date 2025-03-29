@@ -1,8 +1,13 @@
 import { Suspense } from 'react';
-import styles from '../page.module.css';
+import styles from './page.module.scss';
 import { SsrUserCard } from '@/app/components/ssr-component/SsrUserCard';
 
-export default function StreamingRender() {
+export default async function StreamingRender({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -18,7 +23,7 @@ export default function StreamingRender() {
               <div className={styles.loading}>Loading user info...</div>
             }
           >
-            <SsrUserCard />
+            <SsrUserCard id={id} />
           </Suspense>
         </div>
       </main>

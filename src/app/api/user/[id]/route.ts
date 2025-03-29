@@ -16,15 +16,16 @@ export type UserInfo = {
   };
 };
 
-export async function GET() {
+export async function GET(request: Request) {
+  const id = request.url.split('/').pop();
   // Simulate network delay
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   const userInfo = {
-    id: 1,
+    id: Number(id),
     name: 'John Doe',
     email: 'john@example.com',
-    isPremium: Math.random() > 0.5,
+    isPremium: Number(id) % 2 === 0,
     joinDate: '2024-01-15',
     subscriptionEnd: '2024-12-31',
     stats: {
