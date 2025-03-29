@@ -3,7 +3,6 @@ import styles from './index.module.scss';
 interface PremiumFeature {
   id: string;
   title: string;
-  description: string;
   icon: string;
   category: 'core' | 'exclusive' | 'support';
 }
@@ -37,7 +36,7 @@ async function getPremiumFeatures(): Promise<PremiumFeaturesResponse> {
   return response.json();
 }
 
-export default async function PremiumFeatures() {
+export const PremiumFeatures = async () => {
   const data = await getPremiumFeatures();
   return (
     <div className={styles.premiumFeatures}>
@@ -111,7 +110,6 @@ export default async function PremiumFeatures() {
             >
               <span className={styles.featureIcon}>{feature.icon}</span>
               <h4>{feature.title}</h4>
-              <p>{feature.description}</p>
               <span className={styles.featureCategory}>{feature.category}</span>
             </div>
           ))}
@@ -119,4 +117,4 @@ export default async function PremiumFeatures() {
       </div>
     </div>
   );
-}
+};

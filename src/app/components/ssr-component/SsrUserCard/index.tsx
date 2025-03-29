@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 import { UserInfo } from '@/app/api/user/route';
-import PremiumFeatures from '@/app/components/PremiumFeatures';
+import { PremiumFeatures } from '@/app/components/PremiumFeatures';
 import { Suspense } from 'react';
 import DiscountCard from '@/app/components/DiscountCard';
 
