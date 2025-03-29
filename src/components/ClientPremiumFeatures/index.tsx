@@ -27,7 +27,7 @@ interface PremiumFeaturesResponse {
 }
 
 async function getPremiumFeatures(): Promise<PremiumFeaturesResponse> {
-  const response = await fetch('http://localhost:3000/api/premium-features', {
+  const response = await fetch('/api/premium-features', {
     cache: 'no-store',
   });
 

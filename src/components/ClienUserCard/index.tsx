@@ -1,6 +1,5 @@
 import { ClientDiscountCard } from '@/components/ClientDiscountCard';
 import { ClientPremiumFeatures } from '@/components/ClientPremiumFeatures';
-import { getUserInfo } from '@/lib/api';
 import { useEffect, useState } from 'react';
 import styles from './index.module.scss';
 
@@ -18,6 +17,16 @@ interface User {
 interface ClientUserCardProps {
   id: string;
 }
+
+const getUserInfo = async (id: string) => {
+  const response = await fetch(`/api/user/${id}`);
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch user info');
+  }
+
+  return response.json();
+};
 
 export function ClientUserCard({ id }: ClientUserCardProps) {
   const [user, setUser] = useState<User | null>(null);

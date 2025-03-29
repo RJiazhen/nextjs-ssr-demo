@@ -11,7 +11,7 @@ interface DiscountInfo {
 }
 
 async function getDiscountInfo(): Promise<DiscountInfo> {
-  const response = await fetch('http://localhost:3000/api/premium-discount', {
+  const response = await fetch('/api/premium-discount', {
     cache: 'no-store',
   });
 
