@@ -24,6 +24,7 @@ export const SsrUserCard = async () => {
       <div className={styles.userCard}>
         <div className={styles.userHeader}>
           <div className={styles.avatarContainer}>
+            <div className={styles.avatar}>{user.name.charAt(0)}</div>
             {user.isPremium && (
               <div className={styles.premiumBadge}>
                 <span>⭐</span>
