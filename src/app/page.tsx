@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './page.module.css';
-import { getPages } from './utils/getPages';
+import { getPages } from '../utils/getPages';
 
 export default function Home() {
   const pages = getPages();

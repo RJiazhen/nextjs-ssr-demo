@@ -1,8 +1,8 @@
 import styles from './index.module.scss';
-import { PremiumFeatures } from '@/app/components/PremiumFeatures';
+import { PremiumFeatures } from '@/components/PremiumFeatures';
 import { Suspense } from 'react';
-import { DiscountCard } from '@/app/components/DiscountCard';
-import { getUserInfo } from '@/app/lib/api';
+import { DiscountCard } from '@/components/DiscountCard';
+import { getUserInfo } from '@/lib/api';
 
 export const SsrUserCard = async ({ id }: { id: string }) => {
   const user = await getUserInfo(id);

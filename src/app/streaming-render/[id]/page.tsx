@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import styles from './page.module.scss';
-import { SsrUserCard } from '@/app/components/ssr-component/SsrUserCard';
+import { SsrUserCard } from '@/components/ssr-component/SsrUserCard';
 
 export default async function StreamingRender({
   params,

@@ -1,4 +1,4 @@
-import { UserCard } from '@/app/components/UserCard';
+import { UserCard } from '@/components/UserCard';
 import styles from './page.module.scss';
 
 export default async function FullServerRender({

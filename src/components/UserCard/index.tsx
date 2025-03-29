@@ -1,7 +1,7 @@
 import styles from './index.module.scss';
-import { PremiumFeatures } from '@/app/components/PremiumFeatures';
-import { DiscountCard } from '@/app/components/DiscountCard';
-import { getUserInfo } from '@/app/lib/api';
+import { PremiumFeatures } from '@/components/PremiumFeatures';
+import { DiscountCard } from '@/components/DiscountCard';
+import { getUserInfo } from '@/lib/api';
 
 export const UserCard = async ({ id }: { id: string }) => {
   const user = await getUserInfo(id);
