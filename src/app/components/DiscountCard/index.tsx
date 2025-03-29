@@ -20,7 +20,7 @@ async function getDiscountInfo(): Promise<DiscountInfo> {
   return response.json();
 }
 
-export default async function DiscountCard() {
+export const DiscountCard = async () => {
   const discountInfo = await getDiscountInfo();
 
   return (

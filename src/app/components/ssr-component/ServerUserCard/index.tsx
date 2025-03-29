@@ -1,22 +1,10 @@
-import styles from './index.module.scss';
-import { UserInfo } from '@/app/api/user/route';
+import { DiscountCard } from '@/app/components/DiscountCard';
 import { PremiumFeatures } from '@/app/components/PremiumFeatures';
 import { Suspense } from 'react';
-import { DiscountCard } from '@/app/components/DiscountCard';
+import styles from './index.module.scss';
+import { getUserInfo } from '@/app/lib/api';
 
-const getUserInfo = async (): Promise<UserInfo> => {
-  const response = await fetch('http://localhost:3000/api/user', {
-    cache: 'no-store',
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch user info');
-  }
-
-  return response.json();
-};
-
-export const SsrUserCard = async () => {
+export const ServerUserCard = async () => {
   const user = await getUserInfo();
 
   return (
