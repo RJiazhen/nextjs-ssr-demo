@@ -19,6 +19,8 @@ const getUserInfo = async (): Promise<UserInfo> => {
 export const SsrUserCard = async () => {
   const user = await getUserInfo();
 
+  await new Promise((resolve) => setTimeout(resolve, 10000));
+
   return (
     <>
       <div className={styles.userCard}>
