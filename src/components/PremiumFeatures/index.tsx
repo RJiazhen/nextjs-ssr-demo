@@ -1,30 +1,6 @@
 import { getPremiumFeatures } from '@/lib/api';
 import styles from './index.module.scss';
 
-interface PremiumFeature {
-  id: string;
-  title: string;
-  icon: string;
-  category: 'core' | 'exclusive' | 'support';
-}
-
-interface PremiumFeaturesResponse {
-  features: PremiumFeature[];
-  subscription: {
-    status: 'active' | 'expired' | 'trial';
-    startDate: string;
-    endDate: string;
-    daysRemaining: number;
-    autoRenew: boolean;
-  };
-  usage: {
-    storageUsed: number;
-    storageLimit: number;
-    bandwidthUsed: number;
-    bandwidthLimit: number;
-  };
-}
-
 export const PremiumFeatures = async () => {
   const data = await getPremiumFeatures();
 
