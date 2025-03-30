@@ -22,5 +22,8 @@
     "eslint-config-next": "15.2.3",
     "sass": "^1.86.0",
     "typescript": "^5"
+  },
+  "volta": {
+    "node": "22.14.0"
   }
 }
