@@ -24,7 +24,7 @@ export async function GET(request: Request) {
   // Simulate network delay
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  const userInfo = getUserInfo(id);
+  const userInfo = await getUserInfo(id);
 
   return NextResponse.json(userInfo);
 }

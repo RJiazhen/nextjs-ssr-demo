@@ -1,4 +1,5 @@
-export const getUserInfo = (userId: string) => {
+export const getUserInfo = async (userId: string) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const userInfo = {
     id: Number(userId),
     name: 'John Doe',
@@ -16,7 +17,8 @@ export const getUserInfo = (userId: string) => {
   return userInfo;
 };
 
-export const getPremiumDiscount = () => {
+export const getPremiumDiscount = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const discountInfo = {
     discountPercentage: 20,
     originalPrice: 99.99,
@@ -33,7 +35,8 @@ export const getPremiumDiscount = () => {
   return discountInfo;
 };
 
-export const getPremiumFeatures = () => {
+export const getPremiumFeatures = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const premiumFeatures = {
     features: [
       {

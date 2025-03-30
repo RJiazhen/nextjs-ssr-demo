@@ -27,9 +27,7 @@ export interface PremiumFeaturesResponse {
 
 export async function GET() {
   // Simulate network delay
-  await new Promise((resolve) => setTimeout(resolve, 800));
-
-  const premiumFeatures = getPremiumFeatures();
+  const premiumFeatures = await getPremiumFeatures();
 
   return NextResponse.json(premiumFeatures);
 }

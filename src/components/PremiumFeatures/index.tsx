@@ -1,3 +1,4 @@
+import { getPremiumFeatures } from '@/lib/api';
 import styles from './index.module.scss';
 
 interface PremiumFeature {
@@ -24,20 +25,9 @@ interface PremiumFeaturesResponse {
   };
 }
 
-async function getPremiumFeatures(): Promise<PremiumFeaturesResponse> {
-  const response = await fetch('http://localhost:3000/api/premium-features', {
-    cache: 'no-store',
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch premium features');
-  }
-
-  return response.json();
-}
-
 export const PremiumFeatures = async () => {
   const data = await getPremiumFeatures();
+
   return (
     <div className={styles.premiumFeatures}>
       <div className={styles.subscriptionStatus}>
