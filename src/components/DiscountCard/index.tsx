@@ -1,27 +1,8 @@
 import styles from './index.module.scss';
-
-interface DiscountInfo {
-  discountPercentage: number;
-  originalPrice: number;
-  discountedPrice: number;
-  validUntil: string;
-  features: string[];
-}
-
-async function getDiscountInfo(): Promise<DiscountInfo> {
-  const response = await fetch('http://localhost:3000/api/premium-discount', {
-    cache: 'no-store',
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch discount info');
-  }
-
-  return response.json();
-}
+import { getPremiumDiscount } from '@/lib/api';
 
 export const DiscountCard = async () => {
-  const discountInfo = await getDiscountInfo();
+  const discountInfo = await getPremiumDiscount();
 
   return (
     <div className={styles.discountCard}>
@@ -70,4 +51,4 @@ export const DiscountCard = async () => {
       </div>
     </div>
   );
-}
+};
