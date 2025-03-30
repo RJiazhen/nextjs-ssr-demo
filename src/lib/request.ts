@@ -1,16 +1,18 @@
 const isClient = typeof window !== 'undefined';
 const isProduction = process.env.NODE_ENV === 'production';
+const port = process.env.PORT;
 
 export async function request<T>(
   path: string,
   options: RequestInit = {},
 ): Promise<T> {
+  console.log('env', process.env.NODE_ENV, process.env.PORT);
   // Determine the base URL based on environment
   const baseUrl = isClient
     ? '' // Client-side: use relative URL
     : isProduction
-    ? 'https://localhost:3000' // Production server
-    : 'http://localhost:3000'; // Development server
+    ? `https://localhost:${port}` // Production server
+    : `http://localhost:${port}`; // Development server
 
   const url = `${baseUrl}${path}`;
 
