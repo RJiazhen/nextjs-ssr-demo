@@ -14,12 +14,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
 
-.headerContent {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
+  .headerContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+
+    .githubIcon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+    }
+  }
 }
 
 .logo {

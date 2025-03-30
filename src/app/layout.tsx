@@ -3,7 +3,8 @@ import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import './globals.scss';
 import styles from './layout.module.scss';
-
+import githubIcon from '@/assets/img/icon-github.svg';
+import Image from 'next/image';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -27,6 +28,19 @@ export default function RootLayout({
                 className={styles.logo}
               >
                 Next.js SSR Demo
+              </Link>
+              <Link
+                href="https://github.com/RJiazhen/nextjs-ssr-demo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.githubIcon}
+              >
+                <Image
+                  src={githubIcon}
+                  alt="GitHub"
+                  width={24}
+                  height={24}
+                />
               </Link>
             </div>
           </header>
