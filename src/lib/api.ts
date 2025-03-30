@@ -1,13 +1,6 @@
 import { UserInfo } from '@/app/api/user/[id]/route';
+import { request } from '@/lib/request';
 
-export const getUserInfo = async (userId: string): Promise<UserInfo> => {
-  const response = await fetch(`http://localhost:3000/api/user/${userId}`, {
-    cache: 'no-store',
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch user info');
-  }
-
-  return response.json();
+export const getUserInfo = (userId: string) => {
+  return request<UserInfo>(`/api/user/${userId}`);
 };
